@@ -1,7 +1,8 @@
-from typing import Tuple
+from typing import Tuple, List
+from board import Board
 
 
-def sanatize_user_choice(user_choice : str) -> Tuple[bool,str]:
+def sanatize_user_choice(user_choice : str) -> Tuple[bool,(str | List[str])]:
     user_choice_list = user_choice.strip().split()
     valid_choices = ['1','2','3','4','5','6','7','a','b','c','d','e','f','g']
 
@@ -24,7 +25,12 @@ def sanatize_user_choice(user_choice : str) -> Tuple[bool,str]:
     #Checking for duplicates
     if user_choice_list[0] == user_choice_list[1]:
         return (False, f"Your choice was invalid\nArguments must be unique")
+    
+    return (True, user_choice_list)
 
+def move_cards(user_choice: List[str], board : Board) -> bool:
+    column_to_take_from = user_choice[0]
+    column_to_move_to = user_choice[1]
 
-
-    return (True, "Correct")
+    
+    return True

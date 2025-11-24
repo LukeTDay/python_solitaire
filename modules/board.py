@@ -21,3 +21,36 @@ class Board:
     def fill_stock(self) -> Stock:
         filled_stock = Stock(self.deck.deal(24))
         return filled_stock
+    
+    def get_column(self, column_id) -> CardColumn | Stock:
+        match column_id:
+            case '1':
+                return self.column_list[0]
+            case '2':
+                return self.column_list[1]
+            case '3':
+                return self.column_list[2]
+            case '4':
+                return self.column_list[3]
+            case '5':
+                return self.column_list[4]
+            case '6':
+                return self.column_list[5]
+            case '7':
+                return self.column_list[6]
+            case 'a':
+                return self.foundations[0]
+            case 'b':
+                return self.foundations[1]
+            case 'c':
+                return self.foundations[2]
+            case 'd':
+                return self.foundations[3]
+            case 'e':
+                return self.stock
+            case 'f':
+                return self.stock
+            case 'g':
+                return self.stock
+        raise IndexError(f"Tried to get the column {column_id}. Does not exist.")
+
