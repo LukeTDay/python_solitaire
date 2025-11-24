@@ -1,5 +1,7 @@
 from utils import clear_console
-from modules import board, printers
+from modules import board, printers, game_logic
+
+import time
 
 #clear_console()
 #game_type = input(f"Press 'Enter' to begin: ")
@@ -14,9 +16,18 @@ while True:
     clear_console(duration=0.25)
 
     printers.print_foundation_and_stock(current_board)
-
     printers.print_card_columns(current_board)
 
     print("\n\nEnter what column you want to move followed by where you want that card to go. ")
     print("i.e. '5 a' to move the top card of column 5 onto column a")
-    player_move = input("Please enter your move: ")
+
+
+    player_move : tuple[bool, str] = game_logic.sanatize_user_choice(str(input("\nPlease enter your move: ")))
+    while not player_move[0]:
+        print(player_move[1])
+        player_move : tuple[bool, str] = game_logic.sanatize_user_choice(str(input("\nPlease enter your move: ")))
+
+
+
+
+    freeze = input()
