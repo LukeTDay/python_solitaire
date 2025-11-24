@@ -3,6 +3,8 @@ from modules import board, printers, game_logic
 
 import time
 
+from typing import Tuple
+
 #clear_console()
 #game_type = input(f"Press 'Enter' to begin: ")
 
@@ -25,8 +27,14 @@ while True:
     player_move : tuple[bool, str] = game_logic.sanatize_user_choice(str(input("\nPlease enter your move: ")))
     while not player_move[0]:
         print(player_move[1])
-        player_move : tuple[bool, str] = game_logic.sanatize_user_choice(str(input("\nPlease enter your move: ")))
 
+        clear_console(duration=2.0)
+        printers.print_foundation_and_stock(current_board, flush_stock=False)
+        printers.print_card_columns(current_board)
+        player_move : Tuple[bool, str] = game_logic.sanatize_user_choice(str(input("\n\nPlease enter your move: ")))
+
+    
+    
 
 
 
