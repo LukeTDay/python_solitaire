@@ -17,4 +17,6 @@ while True:
 
     printers.print_card_columns(current_board)
 
-    freeze = input()
+    print("\n\nEnter what column you want to move followed by where you want that card to go. ")
+    print("i.e. '5 a' to move the top card of column 5 onto column a")
+    player_move = input("Please enter your move: ")

@@ -22,5 +22,8 @@ def print_foundation_and_stock(board: Board) -> None:
     for card in board.stock.get_next_three_cards():
         print(f"{card:^5}", end=" ")
     print("\n")
+    for x in ['a', 'b', 'c', 'd', 'e', 'f', 'g']:
+        print(f"{x:^5}", end=" ")
+    print("\n")
 
     return
