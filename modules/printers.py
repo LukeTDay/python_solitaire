@@ -1,7 +1,5 @@
 from modules.board import Board
 
-
-
 def print_card_columns(board: Board) -> None:
     #Prints the columns of cards
     max_height = max(len(col.cards) for col in board.column_list)

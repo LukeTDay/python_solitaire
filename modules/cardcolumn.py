@@ -12,7 +12,7 @@ class CardColumn:
             return "  "
         return self.cards[index]
     
-    def deal_cards(self, index =0) -> str:
+    def deal_cards(self, index=0) -> str:
         if len(self.cards) == 0:
             return "|__|"
 
@@ -29,9 +29,12 @@ class CardColumn:
     def get_top_card(self) -> str:
         if len(self.cards) == 0:
             return "|__|"
-        len_cards = len(self.cards)
-        return self.cards[len_cards - 1]
+        return self.cards[0]
     
     def remove_card(self,index=0) -> None:
         self.cards.pop(index)
+        return
+    
+    def add_card(self, card : str, index=0) -> None:
+        self.cards.insert(index,card)
         return

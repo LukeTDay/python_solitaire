@@ -22,3 +22,6 @@ class Stock:
                 self.index = self.index + (num-1)
         return cards
     
+    def remove_card(self,index=0) -> None:
+        self.cards.pop(index)
+        return

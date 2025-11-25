@@ -3,7 +3,7 @@ from modules import board, printers, game_logic
 
 import time
 
-from typing import Tuple, List
+from typing import Tuple, List, cast
 
 #clear_console()
 #game_type = input(f"Press 'Enter' to begin: ")
@@ -33,6 +33,7 @@ while True:
         printers.print_card_columns(current_board)
         player_move : Tuple[bool, (str | List[str])] = game_logic.sanatize_user_choice(str(input("\n\nPlease enter your move: ")))
 
-    game_logic.move_cards(list(player_move[1]), current_board)
+    print(player_move[1])
+    game_logic.move_cards(cast(list,player_move[1]), current_board)
 
     freeze = input()
